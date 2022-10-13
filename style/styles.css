@@ -29,7 +29,7 @@ body {
 }
 
 .textfield {
-    height: 50px;
+    min-height: 50px;
     width: 400px;
     font-size: 20px;
     box-sizing: border-box;
@@ -63,7 +63,7 @@ body {
 }
 
 .todo {
-    height: auto;
+    min-height: 50px;
     width: 350px;
     font-size: 25px;
     box-sizing: border-box;
@@ -76,11 +76,14 @@ body {
     cursor: pointer;
     
     
+    
 }
 
 .todo p {
     word-wrap: break-word;
     margin-left: 10px;
+    margin: 10px 10px;
+    box-sizing: border-box;
 }
    
 
@@ -118,4 +121,5 @@ body {
     font-size: 20px;
     box-sizing: border-box;
     border-radius: 10px;
+    border: 5px solid black;
 }

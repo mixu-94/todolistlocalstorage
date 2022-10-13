@@ -14,7 +14,7 @@ addbutton.addEventListener('click', () => {
 
 list.push(textfield.value)
 textfield.value = "";
-todolist.innerHTML = "";
+
 createTodoList();
 console.log(list)
 
@@ -27,6 +27,9 @@ console.log(list)
 
 
 function createTodoList() {
+
+    //Clear OLD List
+    todolist.innerHTML = "";
     
     list.forEach((item, index) => { 
 
@@ -65,9 +68,9 @@ todo.addEventListener('click', () => {
 
 //deletebutton
 buttondelete.addEventListener('click', () => { 
-    todocontainer.remove(todo)
     list.splice(index, 1);
     console.log(list)
+    createTodoList(); 
 })
 //editbutton
 buttonedit.addEventListener('click', () => { 
@@ -78,6 +81,7 @@ buttonedit.addEventListener('click', () => {
     todo.appendChild(editinput);
     editinput.setAttribute('class', 'textfield-edit');
     editinput.setAttribute('id', 'editinput');
+    editinput.value = list[index];
     buttonedit.innerText = 'SAVE';
     } else if ( buttonedit.innerText === 'SAVE' ) {
     const editinput = document.getElementById('editinput')
