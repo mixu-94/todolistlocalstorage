@@ -8,8 +8,17 @@ const todolist = document.getElementById('to-do-list');
 
 let list = [];
 
-// Add button
 
+// Activate Add Button with Enter Button
+textfield.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    //   event.preventDefault();
+      addbutton.click();
+    }
+  });
+        
+        
+// Add button
 addbutton.addEventListener('click', () => {
 
 list.push(textfield.value)
@@ -20,7 +29,7 @@ console.log(list)
 
 });
 
-
+    
 
 
 
@@ -83,6 +92,19 @@ buttonedit.addEventListener('click', () => {
     editinput.setAttribute('id', 'editinput');
     editinput.value = list[index];
     buttonedit.innerText = 'SAVE';
+
+
+// Activate Enter Button for Save button
+
+    editinput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+        //   event.preventDefault();
+          buttonedit.click();
+        }
+      });
+
+// SAVE BUTTON 
+
     } else if ( buttonedit.innerText === 'SAVE' ) {
     const editinput = document.getElementById('editinput')
         let newtext = editinput.value;
@@ -95,6 +117,9 @@ buttonedit.addEventListener('click', () => {
     }
     console.log(list);
 })
+
+
+
     
 
 
