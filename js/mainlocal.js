@@ -113,6 +113,7 @@ buttonedit.addEventListener('click', () => {
         list[index] = newtext;
         todop.innerText = list[index]
         buttonedit.innerText = 'EDIT';
+        todop.style.textDecoration = "none"
 
     }
     console.log(list);
