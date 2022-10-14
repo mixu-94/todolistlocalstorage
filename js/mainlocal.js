@@ -6,8 +6,8 @@ const todolist = document.getElementById('to-do-list');
 
 // Create List for Todos
 
-let list = [];
-
+let list = JSON.parse(localStorage.getItem("catlist")) ? JSON.parse(localStorage.getItem("catlist")) : [];
+createTodoList();
 
 // Activate Add Button with Enter Button
 textfield.addEventListener("keypress", function(event) {
@@ -22,12 +22,15 @@ textfield.addEventListener("keypress", function(event) {
 addbutton.addEventListener('click', () => {
 
 list.push(textfield.value)
+localStorage.setItem("catlist", JSON.stringify(list));
+
 textfield.value = "";
 
 createTodoList();
 console.log(list)
 
 });
+
 
     
 
@@ -78,6 +81,7 @@ todo.addEventListener('click', () => {
 //deletebutton
 buttondelete.addEventListener('click', () => { 
     list.splice(index, 1);
+    localStorage.setItem("catlist", JSON.stringify(list));
     console.log(list)
     createTodoList(); 
 })
