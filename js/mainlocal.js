@@ -9,7 +9,7 @@ const todolist = document.getElementById('to-do-list');
 let list = JSON.parse(localStorage.getItem("catlist")) ? JSON.parse(localStorage.getItem("catlist")) : [];
 createTodoList();
 
-// Activate Add Button with Enter Button
+// Activate Add Button with Enter 
 textfield.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
     //   event.preventDefault();
@@ -18,7 +18,7 @@ textfield.addEventListener("keypress", function(event) {
   });
         
         
-// Add button
+// Activate Add button with Click
 addbutton.addEventListener('click', () => {
 
 list.push(textfield.value)
@@ -85,17 +85,19 @@ buttondelete.addEventListener('click', () => {
     console.log(list)
     createTodoList(); 
 })
-//editbutton
+//  EDIT Button
 buttonedit.addEventListener('click', () => { 
     
     if ( buttonedit.innerText === 'EDIT') {
-    const editinput = document.createElement('input');
+    const editinput = document.createElement('input')
     todo.removeChild(todop)
     todo.appendChild(editinput);
     editinput.setAttribute('class', 'textfield-edit');
     editinput.setAttribute('id', 'editinput');
+    editinput.focus();
     editinput.value = list[index];
     buttonedit.innerText = 'SAVE';
+    
 
 
 // Activate Enter Button for Save button
@@ -107,7 +109,7 @@ buttonedit.addEventListener('click', () => {
         }
       });
 
-// SAVE BUTTON 
+// SAVE Button
 
     } else if ( buttonedit.innerText === 'SAVE' ) {
     const editinput = document.getElementById('editinput')
@@ -115,6 +117,7 @@ buttonedit.addEventListener('click', () => {
         todo.removeChild(editinput)
         todo.appendChild(todop);
         list[index] = newtext;
+        localStorage.setItem("catlist", JSON.stringify(list));
         todop.innerText = list[index]
         buttonedit.innerText = 'EDIT';
         todop.style.textDecoration = "none"
